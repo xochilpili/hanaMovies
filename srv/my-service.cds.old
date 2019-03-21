@@ -1,0 +1,43 @@
+/*using dhana.Movies.Movies as MoviesTable from '../db/data-model';
+using dhana.Movies.Ratings as RatingsTable from '../db/data-model';
+using dhana.Movies.MovieLinksView as MovieLinksView from '../db/data-model';
+using dhana.Movies.MovieRatingsView as MovieRatingsView from '../db/data-model';
+
+service CatalogService {
+  entity Movies @(
+	title: '{i18n>moviesService}',
+	Capabilities:{
+		InsertRestrictions: {Insertable:false},
+		UpdateRestrictions: {Updatable: false},
+		DeleteRestrictions: {Deletable: false}
+	}
+  ) as projection on MoviesTable;
+  
+  entity MovieLinks @(
+	title: '{i18n>movieLinksService}',
+	Capabilities:{
+		InsertRestrictions: {Insertable:false},
+		UpdateRestrictions: {Updatable: false},
+		DeleteRestrictions: {Deletable: false}
+	}
+  ) as projection on MovieLinksView;
+  
+  entity Ratings @(
+	title: '{i18n>RatingsService}',
+	Capabilities:{
+		InsertRestrictions: {Insertable:false},
+		UpdateRestrictions: {Updatable: false},
+		DeleteRestrictions: {Deletable: false}
+	}
+  ) as projection on RatingsTable;
+  
+  entity MovieRatings @(
+	title: '{i18n>movieRatingsService}',
+	Capabilities:{
+		InsertRestrictions: {Insertable:false},
+		UpdateRestrictions: {Updatable: false},
+		DeleteRestrictions: {Deletable: false}
+	}
+  ) as projection on MovieRatingsView;
+  
+}*/

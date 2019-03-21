@@ -1,0 +1,10 @@
+column table "DHANA_LINKS"(
+	"MOVIEID" Integer not null,
+	"IMDBID" Integer,
+	"TMDBID" Integer,
+	primary key(
+		"MOVIEID"
+	)
+)
+comment 'Links Table'
+unload priority 5 auto merge

@@ -1,0 +1,88 @@
+{
+  "format_version": 1,
+  "imports": [
+		{
+			"target_table": "DHANA_MOVIES",
+			"source_data":{
+				"data_type":"CSV",
+				"file_name":"movies.csv",
+				"has_header":true,
+				"dialect":"HANA",
+				"type_config":{
+					"delimiter":","
+				}
+			},
+			"import_settings":{
+				"include_filter":[],
+				"import_columns":["MOVIEID","TITLE","GENRES"]
+			},
+			"column_mappings":{
+					"MOVIEID":"movieId",
+					"TITLE":"title",
+					"GENRES":"genres"
+			}
+		},{
+			"target_table": "DHANA_RATINGS",
+			"source_data":{
+				"data_type":"CSV",
+				"file_name":"ratings.csv",
+				"has_header":true,
+				"dialect":"HANA",
+				"type_config":{
+					"delimiter":","
+				}
+			},
+			"import_settings":{
+				"include_filter":[],
+				"import_columns":["USERID","MOVIEID","RATING","TIMESTAMP"]
+			},
+			"column_mappings":{
+					"USERID":"userId",
+					"MOVIEID":"movieId",
+					"RATING":"rating",
+					"TIMESTAMP":"timestamp"
+			}
+		},{
+			"target_table": "DHANA_TAGS",
+			"source_data":{
+				"data_type":"CSV",
+				"file_name":"tags.csv",
+				"has_header":true,
+				"dialect":"HANA",
+				"type_config":{
+					"delimiter":","
+				}
+			},
+			"import_settings":{
+				"include_filter":[],
+				"import_columns":["USERID","MOVIEID","TAG","TIMESTAMP"]
+			},
+			"column_mappings":{
+					"USERID":"userId",
+					"MOVIEID":"movieId",
+					"TAG":"tag",
+					"TIMESTAMP":"timestamp"
+			}
+		},{
+			"target_table": "DHANA_LINKS",
+			"source_data":{
+				"data_type":"CSV",
+				"file_name":"links.csv",
+				"has_header":true,
+				"dialect":"HANA",
+				"type_config":{
+					"delimiter":","
+				}
+			},
+			"import_settings":{
+				"include_filter":[],
+				"import_columns":["MOVIEID","IMDBID","TMDBID"]
+			},
+			"column_mappings":{
+					"MOVIEID":"movieId",
+					"IMDBID":"imdbId",
+					"TMDBID":"tmdbId"
+			}
+		}
+  ]
+}

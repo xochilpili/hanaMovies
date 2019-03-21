@@ -1,0 +1,13 @@
+column table "DHANA_TAGS"(
+	"USERID" Integer not null,
+	"MOVIEID" Integer not null,
+	"TAG" varchar(255),
+	"TIMESTAMP" Integer,
+	primary key(
+		"USERID",
+		"MOVIEID",
+		"TAG"
+	)
+)
+comment 'Tags Table'
+unload priority 5 auto merge

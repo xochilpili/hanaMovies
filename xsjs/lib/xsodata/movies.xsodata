@@ -1,0 +1,9 @@
+service {
+	/*"dhana.MovieLinks" as "MovieLinks" keys("movieId");*/
+	"DHANA_MOVIERATES" as "MovieRates" keys("MOVIEID") navigates("MovieRating" as "Ratings");
+
+	"DHANA_RATINGS" as "Ratings";
+	
+	association "MovieRating" principal "MovieRates"("MOVIEID") multiplicity "1" dependent "Ratings"("MOVIEID") multiplicity "*";
+	
+}

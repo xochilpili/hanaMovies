@@ -1,15 +1,29 @@
 {
   "name": "serve",
+  "description":"Generated from Thomas Repo",
+  "version":"1.0.0",
   "dependencies": {
-    "@sap/cds": "2.x",
-    "express": "^4.16.2",
-    "@sap/xssec": "^2.1.12",
-    "@sap/xsenv": "^1.2.9",
-    "hdb": "^0.16.0"
+    "@sap/cds": "^3.5.2",
+    "express": "^4.16.4",
+    "hdb": "^0.17.0"
+  },
+  "engines":{
+  	"node":"^8.9",
+  	"npm":"^6"
   },
   "devDependencies": {},
   "scripts": {
-    "postinstall": "node .install.js && cds build/all --project .. --clean",
-    "start": "node ./node_modules/@sap/cds/bin/cds.js serve gen/csn.json"
+    "postinstall": "npm dedupe && node .build.js",
+    "start": "node ./node_modules/@sap/cds/bin/cds.js serve gen/csn.json",
+    "watch":"nodemon -w . -i node_modules/**,.git/** -e cds -x npm run build"
+  },
+  "private":true,
+  "cds":{
+  	"requires":{
+  		"db":{
+  			"kind":"hana",
+  			"model":"gen/csn.json"
+  		}
+  	}
   }
 }

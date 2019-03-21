@@ -1,0 +1,12 @@
+column table "DHANA_RATINGS"(
+	"USERID" Integer not null,
+	"MOVIEID" Integer not null,
+	"RATING" Decimal(3,2) not null,
+	"TIMESTAMP" Integer not null,
+	primary key(
+		"USERID",
+		"MOVIEID"
+	)
+) with associations(join "DHANA_MOVIES" as "Movies" on "Movies"."MOVIEID" = "MOVIEID")
+comment 'Ratings Table'
+unload priority 5 auto merge

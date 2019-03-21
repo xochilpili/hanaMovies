@@ -10,6 +10,8 @@ modules:
       disk-quota: 256M
     requires:
       - name: completeExercise-hdi-container
+        properties:
+          TARGET_CONTAINER: '~{hdi-container-name}'
   - name: srv
     type: nodejs
     path: srv
@@ -22,6 +24,35 @@ modules:
           url: '${default-url}'
     requires:
       - name: completeExercise-hdi-container
+      - name: completeExercise-uaa
+  - name: web
+    type: html5
+    path: web
+    requires:
+      - name: completeExercise-uaa
+      - name: srv_api
+        group: destinations
+        properties:
+          name: srv_api
+          url: '~{url}'
+          forwardAuthToken: true
+      - name: xsjs_api
+        group: destinations
+        properties:
+          name: xsjs_api
+          url: '~{url}'
+          forwardAuthToken: true
+  - name: xsjs
+    type: nodejs
+    path: xsjs
+    provides:
+      - name: xsjs_api
+        properties:
+          url: '${default-url}'
+    requires:
+      - name: completeExercise-hdi-container
+      - name: completeExercise-uaa
+      - name: db
 resources:
   - name: completeExercise-hdi-container
     properties:
@@ -30,4 +61,4 @@ resources:
   - name: completeExercise-uaa
     type: com.sap.xs.uaa-space
     parameters:
-      service-plan: ''
+      path: ./xs-security.json

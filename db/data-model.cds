@@ -1,7 +1,7 @@
-namespace my.bookshop;
+//using from '../db/import';
 
-entity Books {
-  key ID : Integer;
-  title  : String;
-  stock  : Integer;
-}
+using from '../db/Movies';
+
+/*entity Base{
+	key ID: Integer;
+}*/
