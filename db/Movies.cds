@@ -39,6 +39,22 @@ entity Links{
 	TMDBID: Integer;
 }
 
+entity Jack{
+	key ID : Integer;
+	Name: String(180);
+	lastName: String(156);
+	Address: String(255);
+}
+
+@cds.persistence.exists
+define view Jack_List as
+	select from Jack{
+		key ID,
+		Name,
+		lastName,
+		Address
+};
+
 @cds.persistence.exists
 entity MovieRates{
 	key MOVIEID: Integer;
@@ -47,6 +63,15 @@ entity MovieRates{
 	AVGRATES: decimal;
 	ratings: association to many Ratings on ratings.MOVIEID = MOVIEID;
 };
+
+
+/*define view MovieRatesBis as select from Movies m join MovieRates r on m.MOVIEID = r.MOVIEID {
+	key m.MOVIEID,
+	m.TITLE,
+	r.USERCOUNT,
+	r.AVGRATES,
+	m.ratings
+};*/
 
 /*define view MovieLinksView as
 	select from Links{

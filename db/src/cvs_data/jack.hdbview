@@ -1,0 +1,3 @@
+view "DHANA_JACK_LIST"(
+	"ID", "NAME", "LASTNAME","ADDRESS"
+) as select "ID", "NAME", "LASTNAME","ADDRESS" from "DHANA_JACK"

@@ -4,4 +4,4 @@ view "DHANA_MOVIERATES"(
 	"USERCOUNT",
 	"AVGRATES"
 ) as select t."MOVIEID", t."TITLE", count(a."USERID") as userCount, avg(a."RATING") as AVGRates from "DHANA_MOVIES" t inner join "DHANA_RATINGS" a on a."MOVIEID" = t."MOVIEID" group by t."MOVIEID", t."TITLE"
-with read only
+with read only structured privilege check
